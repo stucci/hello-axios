@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - json-server
+  json-server:
+    image: clue/json-server
+    volumes:
+       - ./db.json:/data/db.json
+    ports:
+      - 3000:80
